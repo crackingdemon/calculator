@@ -11,6 +11,8 @@ const crypto = require("crypto");
 const Razorpay = require("razorpay");
 const ejs = require("ejs");
 const shortid = require("shortid");
+require('dotenv').config()
+
 dotenv.config();
 
 // dotenv.config();

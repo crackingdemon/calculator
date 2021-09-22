@@ -78,6 +78,6 @@ app.post("/api/payment/verify", (req, res) => {
     response = { status: "success" };
   res.send(response);
 });
-app.listen("3000", () => {
-  console.log("server started");
-});
+app.listen(port,()=>{
+    console.log(`Running on port ${port}`);
+})

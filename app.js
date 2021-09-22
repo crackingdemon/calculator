@@ -2,14 +2,16 @@
 // L51h76Ef0a4Y439FvlCK9qSZ
 
 let express = require("express");
+const dotenv = require("dotenv");
 // const dotenv = require("dotenv");
 const cors = require("cors");
-
+const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const crypto = require("crypto");
 const Razorpay = require("razorpay");
 const ejs = require("ejs");
 const shortid = require("shortid");
+dotenv.config();
 
 // dotenv.config();
 let app = express();

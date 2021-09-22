@@ -2,7 +2,7 @@
 // L51h76Ef0a4Y439FvlCK9qSZ
 
 let express = require("express");
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 const cors = require("cors");
 
 const bodyParser = require("body-parser");
@@ -11,12 +11,12 @@ const Razorpay = require("razorpay");
 const ejs = require("ejs");
 const shortid = require("shortid");
 
-dotenv.config();
+// dotenv.config();
 let app = express();
 
 const instance = new Razorpay({
-  key_id: process.env.KEY_ID,
-  key_secret: process.env.KEY_SECRET,
+  key_id: "rzp_test_3wNdrQGujnrR49",
+  key_secret:"L51h76Ef0a4Y439FvlCK9qSZ",
 });
 
 //MIM
@@ -32,10 +32,10 @@ app.set("view engine", "ejs");
 
 //routes
 app.get("/payments", (req, res) => {
-  res.render("payment", { key: process.env.KEY_ID });
+  res.render("payment", { key: "rzp_test_3wNdrQGujnrR49" });
 });
 app.get("/", (req, res) => {
-  res.render("home", { key: process.env.KEY_ID });
+  res.render("home", { key: "rzp_test_3wNdrQGujnrR49" });
 });
 app.post("/razorpay", async (req, res) => {
   try {
@@ -64,7 +64,7 @@ app.post("/api/payment/verify", (req, res) => {
   body = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
 
   var expectedSignature = crypto
-    .createHmac("sha256", process.env.KEY_SECRET)
+    .createHmac("sha256","L51h76Ef0a4Y439FvlCK9qSZ")
     .update(body.toString())
     .digest("hex");
   console.log("sig" + req.body.razorpay_signature);

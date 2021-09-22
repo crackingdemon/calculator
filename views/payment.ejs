@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+  <title>calculator</title>
+</head>
+
+<body>
+  <!-- component -->
+  <div class="min-h-screen bg-white-600 text-white py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-green-300 to-green-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+      </div>
+      <div class="relative px-4 py-10 bg-gray-800 shadow-lg sm:rounded-3xl sm:p-20">
+        <div class="max-w-md mx-auto">
+          <!-- new component  -->
+
+          <!-- component -->
+          <!-- Tabs -->
+          <ul id="tabs" class="inline-flex text-2xl w-full px-1 pt-2 ">
+            <li class="px-4 py-2 -mb-px font-semibold text-white border-b-2 border-blue-400 rounded-t opacity-50"><a
+                id="default-tab" href="#first">Home</a></li>
+            <li class="px-4 py-2 font-semibold text-white rounded-t opacity-50"><a href="#second">Office</a></li>
+
+          </ul>
+
+          <!-- Tab Contents -->
+          <div id="tab-contents">
+            <div id="first" class="p-4">
+              <p class="text-center text-xl text-white">Electricity</p>
+
+              <!-- Block -->
+              <p class="m-2 flex">
+                <label>Electricity 1-Unit:</label>
+                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="inputUnit" type="number"
+                  placeholder="Electricity" oninput="electricityConverter(this.value)"
+                  onchange="electricityConverter(this.value)" oninput="calc();">
+              </p>
+              <p class="m-2 flex" oninput="calc();">In Kg Co2: <span
+                  class="w-full px-5 py-1 text-xl text-gray-700 bg-gray-200 rounded" id="elec">0</span></p>
+
+              <p class="text-center text-xl text-white">LPG:</p>
+
+              <!--  -->
+
+              <p class="m-2 flex">
+                <label>LPG -1 Cylinder:</label>
+                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="inputLpg" type="number"
+                  placeholder="LPG" oninput="lpgConverter(this.value)" onchange="lpgConverter(this.value)"
+                  oninput="calc();">
+              </p>
+              <p class="m-2 flex">In Kg Co2: <span class="w-full px-5 py-1 text-xl text-gray-700 bg-gray-200 rounded"
+                  id="lpg">0</span></p>
+
+              <button class="p-4 bg-green-500">Pay</button>
+            </div>
+            <!-- ! -->
+
+            <!-- block -->
+
+            <div id="second" class="hidden p-4">
+              <p class="text-center text-xl text-white">Electricity</p>
+
+              <p class="m-2 flex">
+                <label>Electricity-1 Unit:</label>
+                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="inputUnit2" type="number"
+                  placeholder="Electricity" oninput="offConverter(this.value)" onchange="offConverter(this.value)">
+              </p>
+              <p class="m-2 flex">In Kg Co2: <span class="w-full px-5 py-1 text-xl text-gray-700 bg-gray-200 rounded"
+                  id="off"></span></p>
+              <p>Petrol:</p>
+
+
+              <p class="m-2 flex">
+                <label>Petrol 1-litre:</label>
+                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="inputpet2" type="number"
+                  placeholder="LPG" oninput="pet2Converter(this.value)" onchange="pet2Converter(this.value)">
+              </p>
+              <p class="m-2 flex">in Kg Co2: <span class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                  id="pet2"></span></p>
+              <p class="text-center text-xl text-white">Diesel</p>
+              <p class="m-2 flex">
+                <label>Diesel 1-litre:</label>
+                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="inputDis2" type="number"
+                  placeholder="diesel" oninput="dis2Converter(this.value)" onchange="dis2Converter(this.value)">
+              </p>
+              <p class="m-2 flex">In Kg Co2: <span class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                  id="dis2"></span></p>
+
+
+
+            </div>
+
+
+
+
+
+          </div>
+
+          <script>
+            let tabsContainer = document.querySelector("#tabs");
+
+            let tabTogglers = tabsContainer.querySelectorAll("a");
+            console.log(tabTogglers);
+
+            tabTogglers.forEach(function (toggler) {
+              toggler.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                let tabName = this.getAttribute("href");
+
+                let tabContents = document.querySelector("#tab-contents");
+
+                for (let i = 0; i < tabContents.children.length; i++) {
+
+                  tabTogglers[i].parentElement.classList.remove("border-blue-400", "border-b", "-mb-px", "opacity-100"); tabContents.children[i].classList.remove("hidden");
+                  if ("#" + tabContents.children[i].id === tabName) {
+                    continue;
+                  }
+                  tabContents.children[i].classList.add("hidden");
+
+                }
+                e.target.parentElement.classList.add("border-blue-400", "border-b-4", "-mb-px", "opacity-100");
+              });
+            });
+
+            document.getElementById("default-tab").click();
+
+          </script>
+          <!-- new component -->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <button onclick="add()">click</button>
+  <p id="answer">hello</p>
+  <!-- calculation -->
+  <script>
+
+    //for Electricity
+    function electricityConverter(valNum) {
+      valNum = parseFloat(valNum);
+      document.getElementById("elec").innerHTML = (valNum * 0.9) ? (valNum * 0.9) : 0;
+
+    }
+
+    //for Lpg
+    function lpgConverter(valNum) {
+      valNum = parseFloat(valNum);
+      document.getElementById("lpg").innerHTML = (valNum * 42.5) ? (valNum * 42.5) : 0;
+    }
+
+    //for Office electricityConverter
+    function offConverter(valNum) {
+      valNum = parseFloat(valNum);
+      document.getElementById("off").innerHTML = (valNum * 0.9) ? (valNum * 0.9) : 0;
+    }
+
+    // for office petrol converter
+    function pet2Converter(valNum) {
+      valNum = parseFloat(valNum);
+      document.getElementById("pet2").innerHTML = (valNum * 2.33) ? (valNum * 2.33) : 0;
+    }
+
+    //for office diesel
+    function dis2Converter(valNum) {
+      valNum = parseFloat(valNum);
+      document.getElementById("dis2").innerHTML = (valNum * 2.68) ? (valNum * 2.68) : 0;
+    }
+
+
+    //to calculate sum 
+
+    function add() {
+      var a, b, c, d;
+      a = Number(document.getElementById("dis2").innerHTML);
+      b = Number(document.getElementById("pet2").innerHTML);
+      c = Number(document.getElementById("off").innerHTML);
+      d = a + b + c;
+      document.getElementById("answer").innerHTML = d;
+    }
+
+
+
+  </script>
+  <!-- calculation -->
+</body>
+
+</html>
+
+
+
+<!-- <label for="">Amount: </label>
+<input type="text" id="order-amt">
+<br>
+<button id="order-button1">Create Order</button>
+<br>
+<script>
+    document.getElementById("order-button1").onclick = function(e) {
+        var url = "/api/payment/order"
+        var params = {
+            amount: document.getElementById("order-amt").value,
+            currency: "INR",
+            receipt: "wthcoding001",
+            payment_capture: '1'
+        };
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function(res) {
+            if (xmlHttp.readyState === 4) {
+                res = JSON.parse(xmlHttp.responseText);
+                document.getElementById("rzp-text").value = res.sub.id
+            }
+        }
+        xmlHttp.open("POST", url, true);
+        xmlHttp.setRequestHeader("Content-type", "application/json");
+        xmlHttp.send(JSON.stringify(params));
+    }
+</script>
+<br>
+<hr>
+<label for="">Order id: </label>
+<input type="text" name="" id="rzp-text">
+<br>
+<button id="rzp-button1">Checkout</button>
+<div id="paymentDetails"></div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    document.getElementById("rzp-button1").onclick = function(e) {
+        var options = {
+            "key": "<%= key %>",
+            "currency": "INR",
+            "name": "WTH Coding",
+            "description": "WtH Coding Transaction",
+            "order_id": document.getElementById("rzp-text").value,
+            "handler": function(response) {
+                document.getElementById('order-pay-id').value = response.razorpay_payment_id;
+                document.getElementById('order-id').value = response.razorpay_order_id;
+                document.getElementById('order-sig').value = response.razorpay_signature;
+            },
+            "theme": {
+                "color": "#0EB9F2"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+<br>
+<hr>
+<label for="">Order id :</label>
+<input type="text" id="order-id">
+<label for="">Payment id :</label>
+<input type="text" id="order-pay-id">
+<label for="">Order signature :</label>
+<input type="text" id="order-sig">
+<br>
+<button id="verify-button1">Verify </button>
+<script>
+    document.getElementById('verify-button1').onclick = function(e) {
+        var url = '/api/payment/verify';
+        var params = {
+            razorpay_order_id: document.getElementById('order-id').value,
+            razorpay_payment_id: document.getElementById('order-pay-id').value,
+            razorpay_signature: document.getElementById('order-sig').value
+        };
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function(res) {
+            if (xmlHttp.readyState === 4) {
+                alert(xmlHttp.responseText);
+            }
+        }
+        xmlHttp.open("POST", url, true); 
+        xmlHttp.setRequestHeader("Content-type", "application/json");
+        xmlHttp.send(JSON.stringify(params));
+    }
+</script> -->

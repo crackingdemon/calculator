@@ -30,8 +30,8 @@
         <!-- Tabs -->
         <ul id="tabs" class="flex justify-center w-full px-1 pt-2 ">
             <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50"><a
-                    id="default-tab" href="#first">Car</a></li>
-            <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50"><a href="#second">Bike</a></li>
+                    id="default-tab" href="#first">Bike</a></li>
+            <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50"><a href="#second">Car</a></li>
             <!-- <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50"><a href="#third">Electronics</a></li>
       <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50"><a href="#fourth">Others</a></li> -->
         </ul>
@@ -42,13 +42,13 @@
                 <!-- First tab -->
 
 
-                <div class='flex max-w-sm w-full bg-white  shadow-md rounded-lg overflow-hidden mx-auto'>
-                    <div class='w-2 bg-gray-800'></div>
+                <div class='flex max-w-sm w-full bg-white border-4 border-green-600  shadow-md rounded-lg overflow-hidden mx-auto'>
+                    <div class='w-2  bg-green-600'></div>
 
                     <div class='flex items-center px-2 py-3'>
                         <form class="w-full max-w-lg">
                             <div class="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">
-                                Car</div>
+                                Bike</div>
                             <div class="flex flex-wrap -mx-3 mb-3">
                                 <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -96,8 +96,8 @@
 
                                 <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mt-4 md:mb-0">
-                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">Total
-                                        <span id="home-sum">0</span> ₹
+                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">Total Co2:
+                                        <span id="home-sum">0</span> 
                                     </div>
                                 </div>
 
@@ -111,12 +111,12 @@
             <div id="second" class="hidden p-4">
                 <!-- Second tab -->
 
-                <div class='flex max-w-sm w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto'>
-                    <div class='w-2 bg-gray-800'></div>
+                <div class='flex max-w-sm w-full bg-white border-4 border-green-600  shadow-md rounded-lg overflow-hidden mx-auto'>
+                    <div class='w-2 bg-green-600'></div>
 
                     <div class='flex items-center px-2 py-3'>
                         <form class="w-full max-w-lg">
-                            <div class="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">Bike</div>
+                            <div class="block uppercase tracking-wide text-gray-700 text-xl font-bold mb-2">Car</div>
                             <div class="flex flex-wrap -mx-3 mb-3">
                                 <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -182,8 +182,9 @@
                                 </div>
                                 <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mt-4 md:mb-0">
-                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">total
-                                        <span id="office-sum">0</span> ₹
+                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">total Co2:
+
+                                        <span id="office-sum">0</span> 
                                     </div>
                                 </div>
 
@@ -390,7 +391,7 @@
 
     </script>
     <div class="flex mt-7 justify-center"><button onclick="pay()"
-            class="border bg-black text-white border-gray-400 rounded py-3 px-4">Total Amount
+            class="border bg-black text-white border-gray-400 rounded py-3 px-4">Pay Now
             <span id="total-sum">0</span> ₹</button></div>
 
     <div class="w-full bg-gray-500 h-16 bottom-0 mt-32 flex justify-center items-center">copyright</div>

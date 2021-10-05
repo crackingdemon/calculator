@@ -35,9 +35,9 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
 //routes
-app.get("/payments", (req, res) => {
-  res.render("payment", { key: "rzp_test_3wNdrQGujnrR49" });
-});
+// app.get("/payments", (req, res) => {
+//   res.render("payment", { key: "rzp_test_3wNdrQGujnrR49" });
+// });
 app.get("/", (req, res) => {
   res.render("home", { key: "rzp_test_3wNdrQGujnrR49" });
 });

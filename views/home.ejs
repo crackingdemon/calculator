@@ -40,9 +40,8 @@
         <div id="tab-contents">
             <div id="first" class="p-4">
                 <!-- First tab -->
-
-
-                <div class='flex max-w-sm w-full bg-white border-4 border-green-600  shadow-md rounded-lg overflow-hidden mx-auto'>
+                <div
+                    class='flex max-w-sm w-full bg-white border-4 border-green-600  shadow-md rounded-lg overflow-hidden mx-auto'>
                     <div class='w-2  bg-green-600'></div>
 
                     <div class='flex items-center px-2 py-3'>
@@ -61,19 +60,6 @@
                                         id="grid-first-name" oninput="electricityConverter(this.value)"
                                         onchange="electricityConverter(this.value)" type="number" placeholder="0">
                                 </div>
-                                <div class="w-full md:w-1/2 px-3">
-                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                        for="grid-last-name">
-                                        Petrol
-                                    </label>
-                                    <input
-                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                        id="grid-last-name" oninput="lpgConverter(this.value)"
-                                        onchange="lpgConverter(this.value)" type="number" placeholder="0">
-                                </div>
-
-
-                                <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                                         for="grid-first-name">
@@ -83,6 +69,20 @@
                                         <p id="elec"> 0</p>
                                     </div>
 
+                                </div>
+
+
+                                <!--  -->
+
+                                <div class="w-full md:w-1/2 px-3">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                        for="grid-last-name">
+                                        Petrol
+                                    </label>
+                                    <input
+                                        class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        id="grid-last-name" oninput="lpgConverter(this.value)"
+                                        onchange="lpgConverter(this.value)" type="number" placeholder="0">
                                 </div>
                                 <div class="w-full md:w-1/2 px-3">
                                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -97,7 +97,7 @@
                                 <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mt-4 md:mb-0">
                                     <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">Total Co2:
-                                        <span id="home-sum">0</span> 
+                                        <span id="home-sum">0</span>
                                     </div>
                                 </div>
 
@@ -111,7 +111,8 @@
             <div id="second" class="hidden p-4">
                 <!-- Second tab -->
 
-                <div class='flex max-w-sm w-full bg-white border-4 border-green-600  shadow-md rounded-lg overflow-hidden mx-auto'>
+                <div
+                    class='flex max-w-sm w-full bg-white border-4 border-green-600  shadow-md rounded-lg overflow-hidden mx-auto'>
                     <div class='w-2 bg-green-600'></div>
 
                     <div class='flex items-center px-2 py-3'>
@@ -184,7 +185,7 @@
                                 <div class="w-full md:w-1/2 px-3 mt-4 md:mb-0">
                                     <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">total Co2:
 
-                                        <span id="office-sum">0</span> 
+                                        <span id="office-sum">0</span>
                                     </div>
                                 </div>
 
@@ -246,7 +247,7 @@
         //for Electricity
         function electricityConverter(valNum) {
             valNum = parseFloat(valNum);
-            document.getElementById("elec").innerHTML = (valNum * 43.2) ? (valNum * 43.2) : 0;
+            document.getElementById("elec").innerHTML = (valNum * 43.2) ? (valNum * 43.2).toFixed(2) : 0;
             addHome();
             addTotal();
         }
@@ -254,7 +255,7 @@
         //for Lpg
         function lpgConverter(valNum) {
             valNum = parseFloat(valNum);
-            document.getElementById("lpg").innerHTML = (valNum * 2.33) ? (valNum * 2.33) : 0;
+            document.getElementById("lpg").innerHTML = (valNum * 2.33) ? (valNum * 2.33).toFixed(2) : 0;
             addHome();
             addTotal();
         }
@@ -262,7 +263,7 @@
         //for Office electricityConverter
         function offConverter(valNum) {
             valNum = parseFloat(valNum);
-            document.getElementById("off").innerHTML = (valNum * 43.2) ? (valNum * 43.2) : 0;
+            document.getElementById("off").innerHTML = (valNum * 43.2) ? (valNum * 43.2).toFixed(2) : 0;
             addOffice();
             addTotal();
         }
@@ -270,7 +271,7 @@
         // for office petrol converter
         function pet2Converter(valNum) {
             valNum = parseFloat(valNum);
-            document.getElementById("pet2").innerHTML = (valNum * 2.33) ? (valNum * 2.33) : 0;
+            document.getElementById("pet2").innerHTML = (valNum * 2.33) ? (valNum * 2.33).toFixed(2) : 0;
             addOffice();
             addTotal();
         }
@@ -278,7 +279,7 @@
         //for office diesel
         function dis2Converter(valNum) {
             valNum = parseFloat(valNum);
-            document.getElementById("dis2").innerHTML = (valNum * 2.68) ? (valNum * 2.68) : 0;
+            document.getElementById("dis2").innerHTML = (valNum * 2.68) ? (valNum * 2.68).toFixed(2) : 0;
             addOffice();
             addTotal();
         }
@@ -291,6 +292,7 @@
             a = Number(document.getElementById("elec").innerHTML);
             b = Number(document.getElementById("lpg").innerHTML);
             d = a + b;
+            d = d.toFixed(2);
             document.getElementById("home-sum").innerHTML = d;
         }
 
@@ -300,13 +302,14 @@
             b = Number(document.getElementById("pet2").innerHTML);
             c = Number(document.getElementById("off").innerHTML);
             d = a + b + c;
+            d = d.toFixed(2);
             document.getElementById("office-sum").innerHTML = d;
         }
         function addTotal() {
             let sum1 = Number(document.getElementById("home-sum").innerHTML);
             let sum2 = Number(document.getElementById("office-sum").innerHTML);
             let sum = sum1 + sum2;
-            document.getElementById("total-sum").innerHTML = sum;
+            document.getElementById("total-sum").innerHTML = ((sum / 1000) * 250);
         }
         var params = {
             razorpay_order_id: "",

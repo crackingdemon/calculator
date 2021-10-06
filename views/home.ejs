@@ -14,9 +14,9 @@
     <nav
         class="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full">
         <div class="mb-2 sm:mb-0 flex items-center">
-            <img src="https://enengspl.com/wp-content/uploads/2021/07/ENEN-Logo-White-1-300x241.jpg"
-                style="height: 60px;" alt="" srcset="">
-            <a href="/" class="text-2xl no-underline pl-2 text-grey-darkest hover:text-blue-dark"> Enengspl</a>
+            <a href="https://enengspl.com/"><img src="https://enengspl.com/wp-content/uploads/2021/07/ENEN-Logo-White-1-300x241.jpg" 
+                style="height: 60px;" alt="" srcset=""></a>
+            <a href="https://enengspl.com/" class="text-2xl no-underline pl-2 text-grey-darkest hover:text-blue-dark"> Enengspl</a>
         </div>
         <div>
             <!-- <a href="/one" class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2">One</a>
@@ -96,7 +96,7 @@
 
                                 <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mt-4 md:mb-0">
-                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">Total Co2:
+                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">Total KG (co2)
                                         <span id="home-sum">0</span>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
                                 </div>
                                 <!--  -->
                                 <div class="w-full md:w-1/2 px-3 mt-4 md:mb-0">
-                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">total Co2:
+                                    <div class="border bg-black text-white border-gray-400 rounded py-3 px-4">Total KG (co2)
 
                                         <span id="office-sum">0</span>
                                     </div>
@@ -292,7 +292,7 @@
             // a = Number(document.getElementById("elec").innerHTML);
             b = Number(document.getElementById("lpg").innerHTML);
             d =  b;
-            d = d.toFixed(2);
+            d = Math.round(d);
             document.getElementById("home-sum").innerHTML = d;
         }
 
@@ -302,15 +302,15 @@
             b = Number(document.getElementById("pet2").innerHTML);
             c = Number(document.getElementById("off").innerHTML);
             d = a + b + c;
-            d = d.toFixed(1);
+            d = Math.round(d);
             document.getElementById("office-sum").innerHTML = d;
         }
         function addTotal() {
             let sum1 = Number(document.getElementById("home-sum").innerHTML);
             let sum2 = Number(document.getElementById("office-sum").innerHTML);
             let sum = sum1 + sum2;
-            sum = sum.toFixed(1);
-            document.getElementById("total-sum").innerHTML = ((sum / 1000) * 250);
+            sum = Math.round(sum);
+            document.getElementById("total-sum").innerHTML = (Math.round((sum / 1000) * 250));
         }
         var params = {
             razorpay_order_id: "",
@@ -398,7 +398,7 @@
             class="border bg-black text-white border-gray-400 rounded py-3 px-4">Pay Now
             <span id="total-sum">0</span> ₹</button></div>
 
-    <div class="w-full bg-gray-500 h-16 bottom-0 mt-32 flex justify-center items-center">copyright</div>
+    <div class="w-full bg-gray-500 h-16 bottom-0 mt-32 flex justify-center items-center">2021 ©️ enengspl.com</div>
 </body>
 
 </html>

@@ -302,13 +302,14 @@
             b = Number(document.getElementById("pet2").innerHTML);
             c = Number(document.getElementById("off").innerHTML);
             d = a + b + c;
-            d = d.toFixed(2);
+            d = d.toFixed(1);
             document.getElementById("office-sum").innerHTML = d;
         }
         function addTotal() {
             let sum1 = Number(document.getElementById("home-sum").innerHTML);
             let sum2 = Number(document.getElementById("office-sum").innerHTML);
             let sum = sum1 + sum2;
+            sum = sum.toFixed(1);
             document.getElementById("total-sum").innerHTML = ((sum / 1000) * 250);
         }
         var params = {
